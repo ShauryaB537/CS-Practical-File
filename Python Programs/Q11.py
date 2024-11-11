@@ -1,39 +1,30 @@
-import pickle
+from pickle import load, dump
 
-records=[]
+file = open('binary.txt', 'wb')
+s = []
+
+print('\nENTER NAME AND ROLL NO.')
 while True:
-    print("\nEnter record details:")
-
-    record_id = int(input("Enter ID: "))
-    name = input("Enter Name: ")
-    age = int(input("Enter Age: "))
-    department = input("Enter Department: ")
-
-    record = {"id": record_id, "name": name, "age": age, "department": department}
-    records.append(record)
-
-    more = input("Do you want to add another record? (yes/no): ").lower()
-    if more != "yes":
+    n = input('Name: ')
+    r = int(input('Roll No: '))
+    s.append(n)
+    s.append(r)
+    dump(s, file)
+    s = []
+    q = input('Do you want to add more records (y/n): ')
+    if q != 'y':
         break
+file.close()
 
-file = open('records.dat', 'wb')
-pickle.dump(records, file)
-print(f"Records have been written.")
+file = open('binary.txt', 'rb')
+s1 = []
+i = int(input('Enter roll no to be searched: '))
 
-def search_record(search_id):
-    try:
-        file = open('records.dat', 'rb')
-        records = pickle.load(file)
-        for record in records:
-            if record['id'] == search_id:
-                print("Record found:")
-                print(record)
-                return
-            print(f"Record with ID {search_id} not found.")
-    except:
-        pass
-
-search_id = int(input("Enter the ID of the record to search for: "))
-search_record(search_id)
-
-#WHY IS THIS NOT WORKING??
+try:
+    while True:
+        s1 = load(file)
+        if s1[1] == i:
+            print(s1)
+except EOFError:
+    print('End of File')
+file.close()

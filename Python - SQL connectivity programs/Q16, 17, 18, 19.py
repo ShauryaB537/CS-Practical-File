@@ -38,7 +38,7 @@ def main_menu():
             execute_query(query)
         elif n == 3:
             table_name = input("\nEnter name of table: ")
-            column_name = input("\nEnter the type of data of record holder, e.g., 'MovieID' or 'Title': ")
+            column_name = input("\nEnter the type of data of record holder, e.g., 'Empl_ID' or 'Salary': ")
             record = input("\nEnter data of record holder: ")
             query = f"SELECT * FROM {table_name} WHERE {column_name} = '{record}';"
             execute_query(query)
@@ -55,15 +55,9 @@ def add_records():
     num_records = int(input("Enter number of records you want to add: "))
     for _ in range(num_records):
         table_name = input("\nEnter name of table: ")
-        movie_id = input("Movie ID: ")
-        title = input("Title: ")
-        genre = input("Genre: ")
-        director = input("Director: ")
-        release_year = input("Release Year: ")
-        price = input("Price: ")
-        quantity = input("Quantity: ")
-        description = input("Description: ")
-        query = f"INSERT INTO {table_name} VALUES ({movie_id}, '{title}', '{genre}', '{director}', {release_year}, {price}, {quantity}, '{description}');"
+        empl_id = input("Employee ID: ")
+        salary= input("Salary: ")
+        query = f"INSERT INTO {table_name} VALUES ({empl_id},  {salary});"
         execute_query(query)
 
 def update_record():

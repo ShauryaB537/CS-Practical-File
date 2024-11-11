@@ -1,14 +1,17 @@
-line_numbers = input("Enter the line numbers separated by comma: ")
-line_numbers_list=line_numbers.split(',')
+f=open("YouAreMySunshine.txt","r")
+x=f.readlines()
 
-source_file = open('YouAreMySunshine.txt', 'r')
-lines = source_file.readlines()
+L=[]
 
-destination_file = open('MyOnlySunshine.txt', 'w')
-for i in line_numbers_list:
-    destination_file.write(lines[int(i) - 1])
+n1=int(input("Enter no. of lines you want to select: "))
 
-print(f"Lines {line_numbers} have been copied to {destination_file}.")
+for a in range(n1):
+    n=int(input("Line number of selected line: "))
+    y=x[n-1]
+    L.append(y)
 
-
-#WHY IS THIS NOT WORKING??
+f.close()
+f=open("MyOnlySunshine.txt","w+")
+f.writelines(L)
+f.close()
+print("Lines duplicated successfully")
