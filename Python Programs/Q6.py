@@ -39,7 +39,7 @@ while True:
         continue
     
     display_menu()
-    choice = input("Enter your choice (1-6): ")
+    choice = input("Enter your choice (1-4): ")
     
     if choice == "1":
         arithmetic_operators(a, b)
