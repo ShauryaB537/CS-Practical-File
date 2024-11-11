@@ -15,7 +15,7 @@ while True:
     more = input("Do you want to add another record? (yes/no): ").lower()
     if more != "yes":
         break
-print(records)
+
 file = open('records.dat', 'wb')
 pickle.dump(records, file)
 print(f"Records have been written.")

@@ -21,7 +21,6 @@ def clear_tuple():
     my_tuple = ()
     print("The tuple has been cleared.")
 
-
 while True:
     display_menu()
     choice = input("Enter your choice (1-4): ")

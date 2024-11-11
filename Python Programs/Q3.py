@@ -28,7 +28,6 @@ def clear_list():
     my_list.clear()
     print("The list has been cleared.")
 
-
 while True:
     display_menu()
     choice = input("Enter your choice (1-5): ")
